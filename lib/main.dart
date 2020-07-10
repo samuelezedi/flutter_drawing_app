@@ -23,3 +23,15 @@ class _HomePageState extends State<HomePage> {
     return Container();
   }
 }
+
+class Signature extends CustomPainter {
+  @override
+  void paint (Canvas canvas, Size size) {
+
+  }
+
+  @override
+  bool shouldRepaint (Signature oldDelegate) {
+    return false
+  }
+}
