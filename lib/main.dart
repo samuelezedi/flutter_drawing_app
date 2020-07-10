@@ -18,6 +18,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<Offset> _points = <Offset>[];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,7 +27,11 @@ class _HomePageState extends State<HomePage> {
           setState(() {
             RenderBox object = context.findRenderObject();
             Offset _localPosition = object.globalToLocal(details.globalPosition);
+            _points = List.from(_points)..add(_localPosition);
           });
+        },
+        onPanEnd: (DragEndDetails details){
+          _points.add(null);
         },
       ),
     );
