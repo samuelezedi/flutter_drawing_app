@@ -33,6 +33,10 @@ class _HomePageState extends State<HomePage> {
         onPanEnd: (DragEndDetails details){
           _points.add(null);
         },
+        child: CustomPaint(
+          painter: Signature(points: _points),
+          size: Size.infinite
+        ),
       ),
     );
   }
@@ -40,6 +44,7 @@ class _HomePageState extends State<HomePage> {
 
 class Signature extends CustomPainter {
   List<Offset> points;
+  Signature({points});
   @override
   void paint (Canvas canvas, Size size) {
 
