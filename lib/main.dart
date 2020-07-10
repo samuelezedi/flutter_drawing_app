@@ -21,21 +21,23 @@ class _HomePageState extends State<HomePage> {
   List<Offset> _points = <Offset>[];
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: GestureDetector(
-        onPanUpdate: (DragUpdateDetails details) {
-          setState(() {
-            RenderBox object = context.findRenderObject();
-            Offset _localPosition = object.globalToLocal(details.globalPosition);
-            _points = List.from(_points)..add(_localPosition);
-          });
-        },
-        onPanEnd: (DragEndDetails details){
-          _points.add(null);
-        },
-        child: CustomPaint(
-          painter: Signature(points: _points),
-          size: Size.infinite
+    return Scaffold(
+      body: Container(
+        child: GestureDetector(
+          onPanUpdate: (DragUpdateDetails details) {
+            setState(() {
+              RenderBox object = context.findRenderObject();
+              Offset _localPosition = object.globalToLocal(details.globalPosition);
+              _points = List.from(_points)..add(_localPosition);
+            });
+          },
+          onPanEnd: (DragEndDetails details){
+            _points.add(null);
+          },
+          child: CustomPaint(
+            painter: Signature(points: _points),
+            size: Size.infinite
+          ),
         ),
       ),
     );
@@ -44,7 +46,7 @@ class _HomePageState extends State<HomePage> {
 
 class Signature extends CustomPainter {
   List<Offset> points;
-  Signature({points});
+  Signature({this.points});
   @override
   void paint (Canvas canvas, Size size) {
 
