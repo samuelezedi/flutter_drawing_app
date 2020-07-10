@@ -22,6 +22,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.clear),
+        onPressed: (){
+          _points.clear();
+        },
+      ),
       body: Container(
         child: GestureDetector(
           onPanUpdate: (DragUpdateDetails details) {
@@ -64,6 +70,6 @@ class Signature extends CustomPainter {
 
   @override
   bool shouldRepaint (Signature oldDelegate) {
-    return false;
+    return oldDelegate.points != points;
   }
 }
