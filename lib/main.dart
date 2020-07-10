@@ -25,13 +25,18 @@ class _HomePageState extends State<HomePage> {
 }
 
 class Signature extends CustomPainter {
+  List<Offset> points;
   @override
   void paint (Canvas canvas, Size size) {
+    for(int i = 0; i < points.length-1; i++) {
+      if(points[i] != null && points[i+1] != null) {
 
+      }
+    }
   }
 
   @override
   bool shouldRepaint (Signature oldDelegate) {
-    return false
+    return false;
   }
 }
