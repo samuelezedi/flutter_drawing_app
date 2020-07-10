@@ -22,8 +22,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Container(
       child: GestureDetector(
-        onPanUpdate: (DragUpdateDetails detais) {
-
+        onPanUpdate: (DragUpdateDetails details) {
+          setState(() {
+            RenderBox object = context.findRenderObject();
+            Offset _localPosition = object.globalToLocal(details.globalPosition);
+          });
         },
       ),
     );
